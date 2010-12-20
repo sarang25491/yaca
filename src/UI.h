@@ -8,14 +8,23 @@
 #ifndef UI_H
 #define	UI_H
 
-#include <QWidget>
+// TODO: Import only needed headers
+#include <QtGui>
+
+#include "VigenereUI.h"
+#include "CaesarUI.h"
 
 class UI : public QWidget {
 public:
     UI();
     virtual ~UI();
-private:
+    QTextEdit* textField;
 
+private:
+    QVBoxLayout* mainLayout;
+    QTabWidget* algoTabs;
+    VigenereUI* vigenereTab;
+    CaesarUI* caesarTab;
 };
 
 #endif	/* UI_H */

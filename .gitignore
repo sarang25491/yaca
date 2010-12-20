@@ -1,0 +1,5 @@
+src/nbproject
+src/build
+src/dist
+src/.dep.inc
+src/moc_*
