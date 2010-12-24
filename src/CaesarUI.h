@@ -25,8 +25,8 @@ private:
     QGridLayout* tabLayout;
     QLabel* legend;
     QTextEdit* text;
-    QPushButton* cypherButton;
-    QPushButton* decypherButton;
+    QPushButton* cipherButton;
+    QPushButton* decipherButton;
     QPushButton* crackButton;
     QSpinBox* shiftBox;
 };

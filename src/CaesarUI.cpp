@@ -17,12 +17,12 @@ CaesarUI::CaesarUI(QTextEdit* field) {
     shiftBox = new QSpinBox;
     tabLayout->addWidget(shiftBox);
 
-    cypherButton = new QPushButton(tr("Cypher"));
-    tabLayout->addWidget(cypherButton);
-    connect(cypherButton, SIGNAL(clicked()), this, SLOT(onCypher()));
+    cipherButton = new QPushButton(tr("Cipher"));
+    tabLayout->addWidget(cipherButton);
+    connect(cipherButton, SIGNAL(clicked()), this, SLOT(onCypher()));
 
-    decypherButton = new QPushButton(tr("Decypher"));
-    tabLayout->addWidget(decypherButton);
+    decipherButton = new QPushButton(tr("Decipher"));
+    tabLayout->addWidget(decipherButton);
 
     crackButton = new QPushButton(tr("Crack"));
     tabLayout->addWidget(crackButton);

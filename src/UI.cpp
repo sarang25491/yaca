@@ -10,27 +10,30 @@
 UI::UI() {
     setWindowTitle("Yet Another Cryptography Application");
     setWindowFlags(Qt::Window);
-    setMinimumSize(400, 500);
+    setMinimumSize(600, 500);
 
     mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+
+    textLabel = new QLabel(tr("Text to cipher/decipher:"));
+    mainLayout->addWidget(textLabel);
     
     textField = new QTextEdit;
+    textField->setMinimumHeight(250);
     mainLayout->addWidget(textField);
 
     algoTabs = new QTabWidget;
     mainLayout->addWidget(algoTabs);
+
+    /*
+     * Available algorithm tabs
+     */
 
     vigenereTab = new VigenereUI(textField);
     algoTabs->addTab(vigenereTab, tr("Vigenere"));
 
     caesarTab = new CaesarUI(textField);
     algoTabs->addTab(caesarTab, tr("Caesar"));
-
-    
-
-    setLayout(mainLayout);
 }
 
-UI::~UI() {
-}
-
+UI::~UI() { }

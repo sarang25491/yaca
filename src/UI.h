@@ -23,6 +23,7 @@ public:
 private:
     QVBoxLayout* mainLayout;
     QTabWidget* algoTabs;
+    QLabel* textLabel;
     VigenereUI* vigenereTab;
     CaesarUI* caesarTab;
 };

@@ -10,12 +10,35 @@
 
 #include <QtGui>
 
+#include "Vigenere.h"
+
 class VigenereUI : public QWidget {
+    Q_OBJECT
+    
 public:
     VigenereUI(QTextEdit* field);
     virtual ~VigenereUI();
+    
+private slots:
+    void onCipherRequest();
+    void onDecipherRequest();
+    void onUndoAction();
+
 private:
+    void clearKey();
+    bool checkFields();
+    void prepareUndo();
+    bool doAction();
     QTextEdit* text;
+    Vigenere algo;
+    QGridLayout* tabLayout;
+    QLabel* legend;
+    QTextEdit* keyBox;
+    QPushButton* cipherButton;
+    QPushButton* decipherButton;
+    QPushButton* undoButton;
+    QCheckBox* cleanTextOpt;
+    QString backup;
 };
 
 #endif	/* VIGENEREUI_H */
