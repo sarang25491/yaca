@@ -19,6 +19,7 @@ CaesarUI::CaesarUI(QTextEdit* field) {
     shiftBox = new QSpinBox;
     shiftBox->setMinimum(1);
     shiftBox->setMaximum(25);
+    shiftBox->setValue(3);
     tabLayout->addWidget(shiftBox, 0, 1, 1, 3, Qt::AlignLeft);
 
     cleanTextOpt = new QCheckBox(tr("Remove special character"));
