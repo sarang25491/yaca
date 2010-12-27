@@ -10,7 +10,7 @@
 UI::UI() {
     setWindowTitle("Yet Another Cryptography Application");
     setWindowFlags(Qt::Window);
-    setMinimumSize(600, 500);
+    setMinimumSize(600, 400);
 
     mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -34,6 +34,9 @@ UI::UI() {
 
     caesarTab = new CaesarUI(textField);
     algoTabs->addTab(caesarTab, tr("Caesar"));
+
+    scytaleTab = new ScytaleUI(textField);
+    algoTabs->addTab(scytaleTab, tr("Scytale"));
 }
 
 UI::~UI() { }
