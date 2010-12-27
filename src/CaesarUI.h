@@ -11,6 +11,8 @@
 #include <QtGui>
 #include <QDebug>
 
+#include "Caesar.h"
+
 class CaesarUI : public QWidget {
     Q_OBJECT
     
@@ -19,16 +21,27 @@ public:
     virtual ~CaesarUI();
 
 private slots:
-    void onCypher();
+    void onCipherRequest();
+    void onDecipherRequest();
+    void onCrackRequest();
+    void onUndoAction();
 
 private:
+    bool checkFields();
+    void prepareUndo();
+    bool doAction();
+
+    QTextEdit* text;
+    Caesar algo;
     QGridLayout* tabLayout;
     QLabel* legend;
-    QTextEdit* text;
+    QSpinBox* shiftBox;
     QPushButton* cipherButton;
     QPushButton* decipherButton;
     QPushButton* crackButton;
-    QSpinBox* shiftBox;
+    QPushButton* undoButton;
+    QCheckBox* cleanTextOpt;
+    QString backup;
 };
 
 #endif	/* CAESARUI_H */

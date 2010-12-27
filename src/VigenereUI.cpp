@@ -17,10 +17,10 @@ VigenereUI::VigenereUI(QTextEdit* field) {
     tabLayout->addWidget(legend);
 
     keyBox = new QTextEdit;
-    tabLayout->addWidget(keyBox, 1, 0, 1, 3);
+    tabLayout->addWidget(keyBox, 1, 0, 1, 4);
 
     cleanTextOpt = new QCheckBox(tr("Remove special character"));
-    tabLayout->addWidget(cleanTextOpt, 2, 0, Qt::AlignLeft);
+    tabLayout->addWidget(cleanTextOpt, 2, 0, 1, 4, Qt::AlignLeft);
 
     cipherButton = new QPushButton(tr("Cipher"));
     tabLayout->addWidget(cipherButton, 3, 0);
@@ -30,9 +30,13 @@ VigenereUI::VigenereUI(QTextEdit* field) {
     tabLayout->addWidget(decipherButton, 3, 1);
     connect(decipherButton, SIGNAL(clicked()), this, SLOT(onDecipherRequest()));
 
+    crackButton = new QPushButton(tr("Crack"));
+    tabLayout->addWidget(crackButton, 3, 2);
+    connect(crackButton, SIGNAL(clicked()), this, SLOT(onCrackRequest()));
+
     undoButton = new QPushButton(tr("Undo"));
     undoButton->setDisabled(true);
-    tabLayout->addWidget(undoButton, 3, 2);
+    tabLayout->addWidget(undoButton, 3, 3);
     connect(undoButton, SIGNAL(clicked()), this, SLOT(onUndoAction()));
 }
 
@@ -54,6 +58,10 @@ void VigenereUI::onDecipherRequest() {
     algo.decipher();
 
     text->setText(algo.getClearMsg());
+}
+
+void VigenereUI::onCrackRequest() {
+    QMessageBox::warning(this, tr("Warning"), tr("Function not implemented yet."));
 }
 
 void VigenereUI::onUndoAction() {

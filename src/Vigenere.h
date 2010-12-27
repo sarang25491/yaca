@@ -22,8 +22,10 @@ public:
     void decipher();
     void setCleanText(bool cleanText);
 
-private:
+protected:
     QString key;
+
+private:
     bool cleanText;
 };
 

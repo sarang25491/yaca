@@ -22,6 +22,7 @@ public:
 private slots:
     void onCipherRequest();
     void onDecipherRequest();
+    void onCrackRequest();
     void onUndoAction();
 
 private:
@@ -36,6 +37,7 @@ private:
     QTextEdit* keyBox;
     QPushButton* cipherButton;
     QPushButton* decipherButton;
+    QPushButton* crackButton;
     QPushButton* undoButton;
     QCheckBox* cleanTextOpt;
     QString backup;
