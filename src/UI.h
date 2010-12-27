@@ -13,6 +13,7 @@
 
 #include "VigenereUI.h"
 #include "CaesarUI.h"
+#include "ScytaleUI.h"
 
 class UI : public QWidget {
 public:
@@ -26,6 +27,7 @@ private:
     QLabel* textLabel;
     VigenereUI* vigenereTab;
     CaesarUI* caesarTab;
+    ScytaleUI* scytaleTab;
 };
 
 #endif	/* UI_H */
