@@ -12,11 +12,13 @@ Scytale::Scytale() { }
 void Scytale::cipher() {
     if (cleanText) clearText();
 
-    int colNb = ceil(clearMsg.length()/letterOnDiameter);
+    int colNb = ceil((double)clearMsg.length()/letterOnDiameter);
     int curChar, curLine, curCol;
 
+    qDebug() << colNb;
+
     cipherMsg.clear();
-    cipherMsg.fill('A', clearMsg.length());
+    cipherMsg.fill(' ', letterOnDiameter*colNb);
 
     for (curChar=0, curLine=0, curCol=0; curChar < clearMsg.length(); curChar++, curCol++) {
         if (curCol == colNb) {
