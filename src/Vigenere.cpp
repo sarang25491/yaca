@@ -16,7 +16,8 @@ Vigenere::~Vigenere() { }
 void Vigenere::cipher() {
     if (key.isEmpty() || clearMsg.isEmpty()) return;
 
-    cipherMsg = "";
+    cipherMsg.clear();
+    
     int i,j;
     for (i=0, j=0; i < clearMsg.length(); i++, j++) {
         if (j >= key.length()) j = 0;
@@ -35,7 +36,8 @@ void Vigenere::cipher() {
 void Vigenere::decipher() {
     if (key.isEmpty() || cipherMsg.isEmpty()) return;
 
-    clearMsg = "";
+    clearMsg.clear();
+
     int i,j;
     for (i=0, j=0; i < cipherMsg.length(); i++, j++) {
         if (j >= key.length()) j = 0;
@@ -60,4 +62,3 @@ QString Vigenere::getKey() const {
 void Vigenere::setCleanText(bool cleanText) {
     this->cleanText = cleanText;
 }
-
