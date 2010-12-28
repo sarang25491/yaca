@@ -92,13 +92,7 @@ bool VigenereUI::checkFields() {
 }
 
 void VigenereUI::clearKey() {
-    QString key = keyBox->toPlainText().toUpper();
-    QString clearedKey = "";
-    
-    foreach(QChar l, key)
-        if (l >= 'A' && l <= 'Z') clearedKey += l;
-
-    keyBox->setText(clearedKey);
+    keyBox->setText(keyBox->toPlainText().toUpper().remove(QRegExp("[^A-Z]")));
 }
 
 void VigenereUI::prepareUndo() {
