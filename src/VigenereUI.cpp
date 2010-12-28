@@ -19,7 +19,7 @@ VigenereUI::VigenereUI(QTextEdit* field) {
     keyBox = new QTextEdit;
     tabLayout->addWidget(keyBox, 1, 0, 1, 4);
 
-    cleanTextOpt = new QCheckBox(tr("Remove special character"));
+    cleanTextOpt = new QCheckBox(tr("Remove special character on cipher"));
     tabLayout->addWidget(cleanTextOpt, 2, 0, 1, 4, Qt::AlignLeft);
 
     cipherButton = new QPushButton(tr("Cipher"));

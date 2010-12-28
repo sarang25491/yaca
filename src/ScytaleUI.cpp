@@ -13,7 +13,7 @@ ScytaleUI::ScytaleUI(QTextEdit* field) {
     tabLayout = new QGridLayout;
     setLayout(tabLayout);
 
-    legend = new QLabel(tr("Number of letter on the diameter:"));
+    legend = new QLabel(tr("Number of letter arround the diameter:"));
     tabLayout->addWidget(legend, 0, 0, 1, 2, Qt::AlignLeft);
 
     letterNbBox = new QSpinBox;
@@ -21,7 +21,7 @@ ScytaleUI::ScytaleUI(QTextEdit* field) {
     letterNbBox->setMaximum(42);
     tabLayout->addWidget(letterNbBox, 0, 2, Qt::AlignLeft);
 
-    cleanTextOpt = new QCheckBox(tr("Remove special character"));
+    cleanTextOpt = new QCheckBox(tr("Remove special character on cipher"));
     tabLayout->addWidget(cleanTextOpt, 1, 0, 1, 3, Qt::AlignLeft);
 
     cipherButton = new QPushButton(tr("Cipher"));

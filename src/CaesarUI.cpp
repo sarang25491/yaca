@@ -22,7 +22,7 @@ CaesarUI::CaesarUI(QTextEdit* field) {
     shiftBox->setValue(3);
     tabLayout->addWidget(shiftBox, 0, 1, 1, 3, Qt::AlignLeft);
 
-    cleanTextOpt = new QCheckBox(tr("Remove special character"));
+    cleanTextOpt = new QCheckBox(tr("Remove special character on cipher"));
     tabLayout->addWidget(cleanTextOpt, 2, 0, 1, 3, Qt::AlignLeft);
 
     cipherButton = new QPushButton(tr("Cipher"));
