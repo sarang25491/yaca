@@ -15,8 +15,6 @@ void Scytale::cipher() {
     int colNb = ceil((double)clearMsg.length()/letterOnDiameter);
     int curChar, curLine, curCol;
 
-    qDebug() << colNb;
-
     cipherMsg.clear();
     cipherMsg.fill(' ', letterOnDiameter*colNb);
 
@@ -25,7 +23,6 @@ void Scytale::cipher() {
             curCol = 0;
             curLine++;
         }
-        qDebug() << "letter" << clearMsg.at(curChar) << "at" << curCol*letterOnDiameter+curLine;
         cipherMsg.replace(curCol*letterOnDiameter+curLine, 1, clearMsg.at(curChar));
     }
 }
@@ -33,8 +30,6 @@ void Scytale::cipher() {
 void Scytale::decipher() {
     int colNb = ceil(cipherMsg.length()/letterOnDiameter);
     int curChar, curLine, curCol;
-
-    qDebug() << cipherMsg;
 
     clearMsg.clear();
 
