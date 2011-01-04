@@ -1,10 +1,3 @@
-/* 
- * File:   Scytale.h
- * Author: alex
- *
- * Created on December 27, 2010, 7:07 PM
- */
-
 #ifndef SCYTALE_H
 #define	SCYTALE_H
 
@@ -14,7 +7,6 @@
 
 class Scytale : public BaseAlgo {
 public:
-    Scytale();
     void cipher();
     void decipher();
     void setLetterOnDiameter(unsigned nb);

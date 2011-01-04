@@ -1,23 +1,14 @@
-/* 
- * File:   VigenereUI.h
- * Author: alex
- *
- * Created on December 20, 2010, 3:44 PM
- */
-
 #ifndef VIGENEREUI_H
 #define	VIGENEREUI_H
 
 #include <QtGui>
-
-#include "Vigenere.h"
+#include "algo/Vigenere.h"
 
 class VigenereUI : public QWidget {
     Q_OBJECT
     
 public:
     VigenereUI(QTextEdit* field);
-    virtual ~VigenereUI();
     
 private slots:
     void onCipherRequest();
@@ -44,4 +35,3 @@ private:
 };
 
 #endif	/* VIGENEREUI_H */
-

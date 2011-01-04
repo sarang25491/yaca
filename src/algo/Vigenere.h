@@ -1,10 +1,3 @@
-/* 
- * File:   Vigenere.h
- * Author: alex
- *
- * Created on December 21, 2010, 5:51 PM
- */
-
 #ifndef VIGENERE_H
 #define	VIGENERE_H
 
@@ -15,12 +8,12 @@
 class Vigenere : public BaseAlgo {
 public:
     Vigenere();
-    virtual ~Vigenere();
     void setKey(QString key);
     QString getKey() const;
     void cipher();
     void decipher();
     void setCleanText(bool cleanText);
+    void findOccurences();
 
 protected:
     QString key;
@@ -30,4 +23,3 @@ private:
 };
 
 #endif	/* VIGENERE_H */
-

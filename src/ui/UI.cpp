@@ -1,10 +1,3 @@
-/* 
- * File:   UI.cpp
- * Author: alex
- * 
- * Created on December 20, 2010, 2:36 PM
- */
-
 #include "UI.h"
 
 UI::UI() {
@@ -38,5 +31,3 @@ UI::UI() {
     scytaleTab = new ScytaleUI(textField);
     algoTabs->addTab(scytaleTab, tr("Scytale"));
 }
-
-UI::~UI() { }

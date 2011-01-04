@@ -1,10 +1,3 @@
-/* 
- * File:   CaesarUI.cpp
- * Author: alex
- * 
- * Created on December 20, 2010, 3:45 PM
- */
-
 #include "CaesarUI.h"
 
 CaesarUI::CaesarUI(QTextEdit* field) {
@@ -42,8 +35,6 @@ CaesarUI::CaesarUI(QTextEdit* field) {
     tabLayout->addWidget(undoButton, 3, 3, Qt::AlignBottom);
     connect(undoButton, SIGNAL(clicked()), this, SLOT(onUndoAction()));
 }
-
-CaesarUI::~CaesarUI() { }
 
 void CaesarUI::onCipherRequest() {
     if (!doAction()) return;

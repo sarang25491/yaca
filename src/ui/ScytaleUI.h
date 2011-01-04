@@ -1,23 +1,14 @@
-/* 
- * File:   ScytaleUI.h
- * Author: alex
- *
- * Created on December 27, 2010, 6:43 PM
- */
-
 #ifndef SCYTALEUI_H
 #define	SCYTALEUI_H
 
 #include <QtGui>
-
-#include "Scytale.h"
+#include "algo/Scytale.h"
 
 class ScytaleUI : public QWidget {
     Q_OBJECT
     
 public:
     ScytaleUI(QTextEdit* field);
-    virtual ~ScytaleUI();
 
 private slots:
     void onCipherRequest();
@@ -28,7 +19,6 @@ private:
     bool checkFields();
     void prepareUndo();
     bool doAction();
-    
     QTextEdit* text;
     Scytale algo;
     QGridLayout* tabLayout;
@@ -42,4 +32,3 @@ private:
 };
 
 #endif	/* SCYTALEUI_H */
-

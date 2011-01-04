@@ -1,10 +1,3 @@
-/* 
- * File:   VigenereUI.cpp
- * Author: alex
- * 
- * Created on December 20, 2010, 3:44 PM
- */
-
 #include "VigenereUI.h"
 
 VigenereUI::VigenereUI(QTextEdit* field) {
@@ -40,8 +33,6 @@ VigenereUI::VigenereUI(QTextEdit* field) {
     connect(undoButton, SIGNAL(clicked()), this, SLOT(onUndoAction()));
 }
 
-VigenereUI::~VigenereUI() { }
-
 void VigenereUI::onCipherRequest() {
     if (!doAction()) return;
 
@@ -61,7 +52,12 @@ void VigenereUI::onDecipherRequest() {
 }
 
 void VigenereUI::onCrackRequest() {
-    QMessageBox::warning(this, tr("Warning"), tr("Function not implemented yet."));
+//    QMessageBox::warning(this, tr("Warning"), tr("Function not implemented yet."));
+    prepareUndo();
+    algo.setKey(keyBox->toPlainText());
+    algo.setCleanText(cleanTextOpt->isChecked());
+    algo.setCipherMsg(text->toPlainText());
+    algo.findOccurences();
 }
 
 void VigenereUI::onUndoAction() {

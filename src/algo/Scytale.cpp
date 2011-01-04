@@ -1,13 +1,4 @@
-/* 
- * File:   Scytale.cpp
- * Author: alex
- * 
- * Created on December 27, 2010, 7:07 PM
- */
-
 #include "Scytale.h"
-
-Scytale::Scytale() { }
 
 void Scytale::cipher() {
     if (cleanText) clearText();

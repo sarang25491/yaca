@@ -1,10 +1,3 @@
-/* 
- * File:   ScytaleUI.cpp
- * Author: alex
- * 
- * Created on December 27, 2010, 6:43 PM
- */
-
 #include "ScytaleUI.h"
 
 ScytaleUI::ScytaleUI(QTextEdit* field) {
@@ -37,8 +30,6 @@ ScytaleUI::ScytaleUI(QTextEdit* field) {
     tabLayout->addWidget(undoButton, 2, 2, Qt::AlignBottom);
     connect(undoButton, SIGNAL(clicked()), this, SLOT(onUndoAction()));
 }
-
-ScytaleUI::~ScytaleUI() { }
 
 void ScytaleUI::onCipherRequest() {
     if (!doAction()) return;
