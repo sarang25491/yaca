@@ -6,6 +6,7 @@
 #include <QDebug>
 
 class Scytale : public BaseAlgo {
+    
 public:
     void cipher();
     void decipher();
