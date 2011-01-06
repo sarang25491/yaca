@@ -6,6 +6,7 @@
 #include "VigenereUI.h"
 #include "CaesarUI.h"
 #include "ScytaleUI.h"
+#include "EnigmaUI.h"
 
 class UI : public QWidget {
 public:
@@ -19,6 +20,7 @@ private:
     VigenereUI* vigenereTab;
     CaesarUI* caesarTab;
     ScytaleUI* scytaleTab;
+    EnigmaUI* enigmaTab;
 };
 
 #endif	/* UI_H */

@@ -32,18 +32,18 @@ void Enigma::enigma(bool cipher) {
                     (reflectorPos+rotors.at(2).at(
                         (rotor3Pos+posR2+rotors.at(1).at(
                             (rotor2Pos+posR1+rotors.at(0).at(
-                                (msg.at(curChar).toAscii()-65+curChar+rotor1Pos) %26
-                                                            )) %26
-                                                        )) %26
-                                                  )) %26
-                               );
+                                (msg.at(curChar).toAscii()-'A'+curChar+rotor1Pos) %26
+                                                            ).toAscii()) %26
+                                                        ).toAscii()) %26
+                                                  ).toAscii()) %26
+                               ).toAscii()-'A';
         backward = rotors.at(0).at(
                         (rotor1Pos+(curChar % 26)+rotors.at(1).at(
                             (rotor2Pos+posR1+rotors.at(2).at(
                                 (forward+posR2+rotor3Pos) %26
-                                                            )) %26
-                                                       )) %26
-                                   );
+                                                            ).toAscii()) %26
+                                                       ).toAscii()) %26
+                                   ).toAscii()-'A';
 
         out += (QChar)('A'+backward);
     }

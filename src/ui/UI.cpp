@@ -30,4 +30,7 @@ UI::UI() {
 
     scytaleTab = new ScytaleUI(textField);
     algoTabs->addTab(scytaleTab, tr("Scytale"));
+
+    enigmaTab = new EnigmaUI(textField);
+    algoTabs->addTab(enigmaTab, tr("Enigma"));
 }

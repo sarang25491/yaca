@@ -4,4 +4,5 @@ src/nbproject
 src/.dep.inc
 src/moc_*
 src/Makefile*
+*.o
 *~*
