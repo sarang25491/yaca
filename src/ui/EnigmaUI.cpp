@@ -18,25 +18,25 @@ EnigmaUI::EnigmaUI(QTextEdit* field) {
 
     rotor1Box = new QSpinBox;
     rotor1Box->setMaximum(25);
-    rotor1Box->setMinimum(1);
+    rotor1Box->setMinimum(0);
     rotor1Box->setValue(4);
     rotorLayout->addRow(tr("Rotor 1:"), rotor1Box);
 
     rotor2Box = new QSpinBox;
     rotor2Box->setMaximum(25);
-    rotor2Box->setMinimum(1);
+    rotor2Box->setMinimum(0);
     rotor2Box->setValue(3);
     rotorLayout->addRow(tr("Rotor 2:"), rotor2Box);
 
     rotor3Box = new QSpinBox;
     rotor3Box->setMaximum(25);
-    rotor3Box->setMinimum(1);
+    rotor3Box->setMinimum(0);
     rotor3Box->setValue(1);
     rotorLayout->addRow(tr("Rotor 3:"), rotor3Box);
 
     reflectorBox = new QSpinBox;
     reflectorBox->setMaximum(25);
-    reflectorBox->setMinimum(1);
+    reflectorBox->setMinimum(0);
     reflectorBox->setValue(9);
     rotorLayout->addRow(tr("Reflector:"), reflectorBox);
 
