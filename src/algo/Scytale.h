@@ -12,6 +12,7 @@ public:
     void decipher();
     void setLetterOnDiameter(unsigned nb);
     void setCleanText(bool cleanText);
+    unsigned crack();
     
 private:
     void clearText();
