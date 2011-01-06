@@ -25,9 +25,13 @@ ScytaleUI::ScytaleUI(QTextEdit* field) {
     tabLayout->addWidget(decipherButton, 2, 1, Qt::AlignBottom);
     connect(decipherButton, SIGNAL(clicked()), this, SLOT(onDecipherRequest()));
 
+    crackButton = new QPushButton(tr("Crack"));
+    tabLayout->addWidget(crackButton, 2, 2, Qt::AlignBottom);
+    connect(crackButton, SIGNAL(clicked()), this, SLOT(onCrackRequest()));
+
     undoButton = new QPushButton(tr("Undo"));
     undoButton->setDisabled(true);
-    tabLayout->addWidget(undoButton, 2, 2, Qt::AlignBottom);
+    tabLayout->addWidget(undoButton, 2, 3, Qt::AlignBottom);
     connect(undoButton, SIGNAL(clicked()), this, SLOT(onUndoAction()));
 }
 
@@ -46,6 +50,22 @@ void ScytaleUI::onDecipherRequest() {
     algo.setCipherMsg(text->toPlainText());
     algo.decipher();
 
+    text->setText(algo.getClearMsg());
+}
+
+void ScytaleUI::onCrackRequest() {
+    if (!checkFields()) return;
+
+    if ((text->toPlainText().length() % 2)) {
+        QMessageBox::warning(this, tr("Error"), tr("Scytale ciphered message must be odd"));
+        return;
+    }
+    
+    prepareUndo();
+    algo.setCipherMsg(text->toPlainText());
+    algo.setLetterOnDiameter(algo.crack());
+    algo.setCleanText(cleanTextOpt->isChecked());
+    algo.decipher();
     text->setText(algo.getClearMsg());
 }
 
