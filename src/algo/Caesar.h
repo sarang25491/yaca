@@ -8,7 +8,9 @@ class Caesar : public Vigenere {
 
 public:
     void setKey(unsigned shift);
+    int frequentialAnalyse ( );
 private:
+
 
 };
 
