@@ -55,7 +55,13 @@ void CaesarUI::onDecipherRequest() {
 }
 
 void CaesarUI::onCrackRequest() {
-    QMessageBox::warning(this, tr("Warning"), tr("Method not implemented yet."));
+    if (!checkFields()) return;
+    
+    prepareUndo();
+    algo.setCipherMsg(text->toPlainText());
+    QMessageBox::critical(this, tr("Field error"), QString::number(algo.frequentialAnalyse(), 10));
+    algo.setKey(4);
+    algo.decipher();
 }
 
 void CaesarUI::onUndoAction() {
