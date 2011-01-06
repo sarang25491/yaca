@@ -4,66 +4,43 @@ void Caesar::setKey(unsigned shift) {
     QString buildKey = (QChar)('A' + shift);
     key = buildKey;
 }
-int Caesar::frequentialAnalyse (){
-    QMap<QChar,float> pourcent;
-    QMap<QChar,float> pourcentFR;
-    QList<float> res;
-    float val;
 
-    pourcentFR['A'] = 9.42;
-    pourcentFR['B'] = 1.02;
-    pourcentFR['C'] = 2.64;
-    pourcentFR['D'] = 3.39;
-    pourcentFR['E'] = 15.87;
-    pourcentFR['F'] = 0.95;
-    pourcentFR['G'] = 1.04;
-    pourcentFR['H'] = 0.77;
-    pourcentFR['I'] = 8.41;
-    pourcentFR['J'] = 0.89;
-    pourcentFR['K'] = 0.001;
-    pourcentFR['L'] = 5.34;
-    pourcentFR['M'] = 3.24;
-    pourcentFR['N'] = 7.15;
-    pourcentFR['O'] = 5.14;
-    pourcentFR['P'] = 2.86;
-    pourcentFR['Q'] = 1.06;
-    pourcentFR['R'] = 6.46;
-    pourcentFR['S'] = 7.90;
-    pourcentFR['T'] = 7.26;
-    pourcentFR['U'] = 6.24;
-    pourcentFR['V'] = 2.15;
-    pourcentFR['W'] = 0.01;
-    pourcentFR['X'] = 0.30;
-    pourcentFR['Y'] = 0.24;
-    pourcentFR['Z'] = 0.32;
+int Caesar::crack (){
+    QList<float> frequenciesStat;
+    QList<float> frequencies;
+    QList<float> keyScores;
 
-    for ( int i = 0 ; i < 25; i++ )
-    {
-        pourcent[(QChar)('A'+i)] = (cipherMsg.count((QChar)('A'+i))/cipherMsg.length())*100;
+    // French letter frequency
+    frequencies << 9.42 << 1.02 << 2.64 << 3.39 << 15.87 << 0.95 << 1.04 << 0.77;
+    frequencies << 8.41 << 0.89 << 0.001 << 5.34 << 3.24 << 7.15 << 5.14 << 2.86;
+    frequencies << 1.06 << 6.46 << 7.90 << 7.26 << 6.24 << 2.15 << 0.01 << 0.30;
+    frequencies << 0.24 << 0.32;
 
-    }
+    // Cipher text stats
+    for (int i = 0; i < 25; i++)
+        frequenciesStat.append((float) ((float) cipherMsg.count((QChar) ('A' + i)) / cipherMsg.length())*100);
 
-    for ( int i = 0 ; i < 25; i++ )
-    {
-        res.insert(i, 0);
-        for ( int j = 0 ; j < 25; j++ )
-        {
-            val = abs(pourcent[(QChar)('A'+j)]-pourcentFR[(QChar)('A'+j)]);
-            res.replace(i, res.at(i) + (100 - pourcentFR[(QChar)('A'+j)]) * val);
+    // Get stat for each get
+    for (int key = 0; key < 25; key++) {
+        float total = 0.0;
+        for (int letter = 0; letter < 25; letter++) {
+            float diff = (float)(frequenciesStat.at((letter + key)%25) - frequencies.at(letter));
+            if (diff < 0) diff = -diff;
+            total += (float)((100 - frequencies.at(letter)) * diff);
         }
+
+        keyScores.append(total);
     }
 
+
+    int key = 0;
     float min = INFINITY;
-    int decalage = 541;
-    for ( int i = 0 ; i < 25; i++ )
-    {
-        if(res.at(i)<min){
-            min = res.at( i );
-            decalage = i;
+    for (int i = 0; i < 25; i++) {
+        if (keyScores.at(i) < min) {
+            min = keyScores.at(i);
+            key = i;
         }
-
     }
-    
 
-    return decalage;
+    return key;
 }

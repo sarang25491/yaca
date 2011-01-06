@@ -59,9 +59,9 @@ void CaesarUI::onCrackRequest() {
     
     prepareUndo();
     algo.setCipherMsg(text->toPlainText());
-    QMessageBox::critical(this, tr("Field error"), QString::number(algo.frequentialAnalyse(), 10));
-    algo.setKey(4);
+    algo.setKey(algo.crack());
     algo.decipher();
+    text->setText(algo.getClearMsg());
 }
 
 void CaesarUI::onUndoAction() {
