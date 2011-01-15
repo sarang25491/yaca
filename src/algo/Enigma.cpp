@@ -8,10 +8,10 @@
 #include "Enigma.h"
 
 Enigma::Enigma() {
-    rotors.append("JGDQOXUSCAMIFRVTPNEWKBLZYH");
+    rotors.append("RVTPNEWKBLZYHJGDQOXUSCAMIF");
     rotors.append("NTZPSFBOKMWRCJDIVLAEYUXHGQ");
     rotors.append("JVIUBHTCDYAKEQZPOSGXNRMWFL");
-    reflector = "QWERTZUIOASDFGHJKPYXCVBNML";
+    reflector = "DFGHJKPYXCVBNMLQWERTZUIOAS";
 }
 
 void Enigma::enigma(bool cipher) {
